@@ -1,0 +1,2 @@
+C:\Users\menni\OneDrive\מסמכים\GitHub\Mego\C#\exercises\ex 23.05.24\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\menni\OneDrive\מסמכים\GitHub\Mego\C#\exercises\ex 23.05.24\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache

@@ -1,79 +1,79 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Reflection.Emit;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace ConsoleApp7
-{
-    class Clock
-    {
-        int hour;
-        int min;
-        public Clock(int hour, int min)
-        {
-            this.hour = hour;
-            this.min = min;
-        }
-        public Clock(int hour)
-        {
-            this.hour = hour;
-            this.min = 0;
-        }
-        public int GetHour() { return hour; }
-        public int GetMin() { return min; }
-        public void SetHour(int hour) { this.hour = hour; }
-        public void SetMin(int min) { this.min = min; }
-        public int GetInterval()
-        {
-            int m = 24 * 60;
-            int d = hour * 60 + min;
-            return m - d;
-        }
+//namespace ConsoleApp7
+//{
+//    class Clock
+//    {
+//        int hour;
+//        int min;
+//        public Clock(int hour, int min)
+//        {
+//            this.hour = hour;
+//            this.min = min;
+//        }
+//        public Clock(int hour)
+//        {
+//            this.hour = hour;
+//            this.min = 0;
+//        }
+//        public int GetHour() { return hour; }
+//        public int GetMin() { return min; }
+//        public void SetHour(int hour) { this.hour = hour; }
+//        public void SetMin(int min) { this.min = min; }
+//        public int GetInterval()
+//        {
+//            int m = 24 * 60;
+//            int d = hour * 60 + min;
+//            return m - d;
+//        }
 
-    }
-    internal class Program
-    {
-        static int GetInterval(Clock c)
-        {
-            int m = 24 * 60;
-            int d = c.GetHour() * 60 + c.GetMin();
-            return m - d;
-        }
-        static void Main(string[] args)
-        {
-            Console.Write("Enter Hour 1 : ");
-            int h1 = int.Parse(Console.ReadLine());
-            Console.Write("Enter min 1 : ");
-            int m1 = int.Parse(Console.ReadLine());
-            Console.Write("Enter Hour 2 : ");
-            int h2 = int.Parse(Console.ReadLine());
-            Console.Write("Enter min 2 : ");
-            int m2 = int.Parse(Console.ReadLine());
-            Clock f1 = new Clock(h1, m1);
-            Clock f2 = new Clock(h2, m2);
-            if (f1.GetInterval() > f2.GetInterval())
-                Console.WriteLine("f1 early");
-            else
-                Console.WriteLine("f2 early");
-            Clock p = new Clock(55);
+//    }
+//    internal class Program
+//    {
+//        static int GetInterval(Clock c)
+//        {
+//            int m = 24 * 60;
+//            int d = c.GetHour() * 60 + c.GetMin();
+//            return m - d;
+//        }
+//        static void Main(string[] args)
+//        {
+//            Console.Write("Enter Hour 1 : ");
+//            int h1 = int.Parse(Console.ReadLine());
+//            Console.Write("Enter min 1 : ");
+//            int m1 = int.Parse(Console.ReadLine());
+//            Console.Write("Enter Hour 2 : ");
+//            int h2 = int.Parse(Console.ReadLine());
+//            Console.Write("Enter min 2 : ");
+//            int m2 = int.Parse(Console.ReadLine());
+//            Clock f1 = new Clock(h1, m1);
+//            Clock f2 = new Clock(h2, m2);
+//            if (f1.GetInterval() > f2.GetInterval())
+//                Console.WriteLine("f1 early");
+//            else
+//                Console.WriteLine("f2 early");
+//            Clock p = new Clock(55);
 
 
 
-            //Clock c1 = new Clock(14, 55);
-            //Clock c2 = new Clock(19, 35);
-            //Clock c3 = new Clock(21, 5);
-            //Console.WriteLine(GetInterval(c1));
-            //Console.WriteLine(GetInterval(c2));
-            //Console.WriteLine(GetInterval(c3));
-            //Console.WriteLine(c1.GetInterval());
-            //Console.WriteLine(c2.GetInterval());
-            //Console.WriteLine(c3.GetInterval());
+//            //Clock c1 = new Clock(14, 55);
+//            //Clock c2 = new Clock(19, 35);
+//            //Clock c3 = new Clock(21, 5);
+//            //Console.WriteLine(GetInterval(c1));
+//            //Console.WriteLine(GetInterval(c2));
+//            //Console.WriteLine(GetInterval(c3));
+//            //Console.WriteLine(c1.GetInterval());
+//            //Console.WriteLine(c2.GetInterval());
+//            //Console.WriteLine(c3.GetInterval());
 
-        }
-    }
-}
+//        }
+//    }
+//}
 
 
 
