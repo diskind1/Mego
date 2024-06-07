@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        form {
+            border: 1px solid blue;
+            width: fit-content;
+            padding: 10px;
+            border-radius: 7px;
+            background-color: aqua;
+            text-align: left;
+            direction: ltr;
+
+        }
+
+        .abc {
+            margin: 0;
+            width: 48%;
+            display: flex;
+            display: inline-block;
+            border: 3px solid greenyellow;
+            vertical-align: top;
+
+
+        }
+        .center{
+
+            margin: auto;
+            width: 20%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+            text-align: center;
+            direction: rtl;
+            font-family:initial;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body style="margin-left: 10px;background-color: #777fff;">
+
+    <div>
+        <h1 class="center">
+            אלמנטים ב html
+        </h1>
+    </div>
+
+    <div class="abc" style="background-color: rgb(247, 91, 174);position: absolute;
+    left: 25px;
+    width: 300px;
+    padding: 10px;">
+        <h2>רכיב המאפשר בחירה מרובה של כמה אפשרויות</h2>
+        <form action="/action_page.php">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="student">
+            <label for="vehicle1">סטודנט</label><br>
+            <input type="checkbox" id="vehicle2" name="vehicle2" value="Jerusalemite">
+            <label for="vehicle2">ירושלמי</label><br>
+            <input type="checkbox" id="vehicle3" name="vehicle3" value="mego">
+            <label for="vehicle3">תלמיד מיגו</label><br><br>
+            <input type="submit" value="שליחה">
+        </form>
+
+
+
+
+        <h2>רכיב המאפשר בחירה אחת מכמה אפשרות <br>אבל כאשר אין הרבה אפשרויות</h2>
+
+        <form action="/action_page.php">
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">HTML</label><br>
+            <input type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">CSS</label><br>
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">JavaScript</label><br><br>
+            <input type="submit" value="שליחה">
+        </form>
+
+
+
+        <h2>רכיב המאפשר בחירה של אפשרות אחת מהרבה אפשרויות</h2>
+
+        <form action="/action_page.php">
+            <label for="cars">Choose a chasiduth:</label>
+            <select id="cars" name="cars">
+                <option value="volvo">אמשינוב</option>
+                <option value="fiat">אשלג</option>
+                <option value="audi">באיאן</option>
+                <option value="volvo">באסטאן</option>
+                <option value="audi">ביאלא</option>
+                <option value="saab">בעלזא</option>
+                <option value="volvo">ברסלב</option>
+                <option value="saab">גור</option>
+                <option value="saab">דארג</option>
+                <option value="fiat">ויזניץ</option>
+                <option value="audi">חבד</option>
+                <option value="audi">לעלוב</option>
+                <option value="fiat">נדבורנה</option>
+                <option value="fiat">סלונים</option>
+                <option value="saab">פרמישלאן</option>
+                <option value="volvo">קרעטשניף</option>
+            </select>
+            <input type="submit">
+        </form>
+
+
+
+
+
+        <h2> רכיב המאפשר הזנת טקסט רגיל</h2>
+
+        <form action="/action_page.php">
+            <label for="fname">שם פרטי:</label><br>
+            <input type="text" id="fname" name="fname"><br>
+            <label for="lname">שם משפחה:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+            <input type="submit" value="שליחה">
+        </form>
+
+
+
+
+
+
+        <h2>רכיב המאפשר הזנת סיסמה בלבד</h2>
+
+        <form action="/action_page.php">
+            <label for="username">שם משתמש:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="pwd">סיסמה:</label><br>
+            <input type="password" id="pwd" name="pwd"><br><br>
+            <input type="submit" value="שליחה">
+        </form>
+    </div>
+
+
+
+    <div class="abc" style="background-color: rgb(241, 234, 209);position: absolute;
+    right: 25px;
+    width: 300px;
+    padding: 10px;">
+
+        <h2>רכיב המאפשר הזנה של מייל בלבד</h2>
+
+        <form action="/action_page.php">
+            <label for="email">Enter your email:</label>
+            <input type="email" id="email" name="email">
+            <input type="submit" value="שליחה">
+        </form>
+
+
+
+
+        <h2>רכיב המאפשר הזנה של מספר בלבד</h2>
+
+
+        <form action="/action_page.php">
+            <label for="quantity">:בחר מספר בין 1 ל 5</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="5">
+            <input type="submit" value="Submit">
+        </form>
+
+
+
+
+        <h2>רכיב המאפשר הזנה של טקסט ארוך</h2>
+
+        <form action="/action_page.php">
+            <textarea name="message" rows="10" cols="30">My text is:</textarea>
+            <br><br>
+            <input type="submit">
+        </form>
+
+
+
+
+
+        <h2>רכיב כפתור שניתן ללחוץ עליו</h2>
+
+        <button type="button" onclick="alert('Hello World!')">תלחץ עליי</button>
+
+
+
+
+
+
+
+        <h2>רכיב המאפשר בחירה של תאריך</h2>
+
+
+        <form action="/action_page.php">
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday">
+            <input type="submit" value="שליחה">
+        </form>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
