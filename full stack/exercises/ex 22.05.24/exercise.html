@@ -25,13 +25,25 @@
         }
 
         .top {}
+
+        .img {
+            width: 100%;
+            height: 233px;
+            object-fit: cover;
+        }
+
+        .main-div {
+            display: inline-block;
+            width: 33%;
+
+        }
     </style>
 
 </head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 
 <body>
-    <header style="width: 100%; border:1px solid black; background-color: #20393d; color: aliceblue;">
+    <header id="top" style="width: 100%; border:1px solid black; background-color: #20393d; color: aliceblue;">
         <DIV style="display: inline-block; vertical-align: middle;">
             <H1 style="font-family: Sofia, sans-serif;margin-left: 15px;
             font-size: 50px; text-shadow: 3px 3px 3px #ababab;display: inline-block;
@@ -47,7 +59,7 @@
         <DIV style="margin-left: 800px;">
             <nav style="direction: rtl;">
                 <div class="scrollmenu">
-                    <a href="#home">בית</a>
+                    <a href="#top">בית</a>
                     <a style="margin-left: 10px;" href="https://newsmusic.blogspot.com/">חדשות המוזיקה</a>
                     <a style="margin-left: 10px;"
                         href="https://he.wikipedia.org/wiki/%D7%A7%D7%98%D7%92%D7%95%D7%A8%D7%99%D7%94:%D7%96%D7%9E%D7%A8%D7%99%D7%9D_%D7%97%D7%A1%D7%99%D7%93%D7%99%D7%99%D7%9D">חיפוש
@@ -67,26 +79,27 @@
     </header>
     <div style="margin-top: 5px;">
         <aside
-            style="width:30%;display: inline-block; direction: rtl; background-color:bisque;vertical-align: top;padding: 30px;text-align: justify;font-family:cursive ;">
-            <h1 style="font-size:large;text-align: center;">מעט על השתלשלות המוזיקה</h1>
+            style="width:30%;display: inline-block; direction: rtl; background-color:bisque;vertical-align: top;padding: 15px 30px;text-align: justify;font-family:cursive;">
+            <h1 style="font-size:larger;text-align: center;font-size: 45px;">מעט על השתלשלות המוזיקה</h1>
             <p>המוזיקה הקלאסית בתקופה המודרנית היא מוזיקה שחוברה מסוף המאה ה-19 עד ימינו אלה. מדובר בעיקר במוזיקה
                 קונצרטית מערבית, אך גם בהשפעות ההדדיות בינה לבין סוגות אחרות, כמו ג'אז, רוק ופופ לסוגיהם מצד אחד ובין
-                תרבויות המזרח ומוזיקה עממית, מצד שני.<br>
+                תרבויות המזרח ומוזיקה עממית, מצד שני.<br><br>
 
                 במאה ה-20 נרשם גידול בהאזנה למוזיקה בזכות העלייה בפופולריות של הרדיו והשימוש בפונוגרף לנגינה והפצה של
                 מוזיקה. המוזיקה האמנותית התמקדה בחקירת מקצבים, סגנונות וסלילים חדשים. איגור סטרווינסקי, ארנולד שנברג
                 וגון קייג' הם בין המלחינים המשפיעים ביותר של המוזיקה האמנותית במאה ה-20.<br>
 
                 מאז היות המוזיקה, מימי הביניים ועד התקופה הפוסט-רומנטית, הרחיבו המלחינים את המסגרות, שינו והוסיפו צורות,
-                הגדילו הרכבים, פיתחו כלי נגינה חדשים ושיכללו כלים קיימים.<br>
+                הגדילו הרכבים, פיתחו כלי נגינה חדשים ושיכללו כלים קיימים.<br><br>
                 התקופה הקלאסית הביאה עמה את צורת הסונאטה ואת
-                הסימפוניה, אך שמרה על תבניות הרמוניות וצורניות מוגדרות ועל גבולות ברורים, שנקבעו בתקופות הקודמות.<br>
+                הסימפוניה, אך שמרה על תבניות הרמוניות וצורניות מוגדרות ועל גבולות ברורים, שנקבעו בתקופות
+                הקודמות.<br><br>
                 התקופה
                 הרומנטית, החל בבטהובן, שחררה את המלחינים מכבלי המבנים המקובלים, הוסיפה מוזיקה ווקאלית לסימפוניה, הגדילה
                 את התזמורת לממדי הענק של מאהלר ואת האופרה לחזיונות המדהימים של וגנר.<br>
                 אך בכל השינויים העצומים האלה, נשמרו
                 עדיין יסודות ההרמוניה שנקבעו בתקופת הבארוק, כאשר ירשו הסולמות את מקום המודוסים של ימי הביניים
-                והרנסאנס.<br>
+                והרנסאנס.<br><br>
 
                 חידושים ופריצות דרך הופיעו כבר בסוף המאה ה-19, ביצירות פוסט-רומנטיות ואימפרסיוניסטיות, ובמיזוג השפעות מן
                 המזרח הרחוק במוזיקה המערבית, אך המאה העשרים הביאה עמה פריצת גדרות גמורה, כאשר שנברג, תלמידיו וממשיכי
@@ -101,57 +114,172 @@
                 המוזיקה הקלאסית בתקופה המודרנית היא מוזיקה שחוברה מסוף המאה ה-19 עד.</p>
         </aside>
         <main style="width: 65%; display: inline-block;">
-            <img style="max-width: 100%;" src="photos/the-orchestra-players-on-stage.webp"
-                alt="the-orchestra-players-on-stage" title="ישראל היום">
-            <img style="width: 323px;height: 233px;" src="photos/menni-in-concetr.jpg" alt="menni-in-concetr"
-                title="מני דיסקינד - צילום יחצ">
-            <img style="width: 323px;height: 233px;" src="photos/razel.jpeg" alt="razel" title="בחדרי חרדים">
-            <img style="width: 323px;height: 233px;" src="photos/klain&bitan.jpg" alt="klain&bitan" title="בחדרי חרדים">
-            <img style="width: 323px;height: 233px;" src="photos/helfgot.jpeg" alt="helfgot" title="בחדרי חרדים">
-            <img style="width: 323px;height: 233px;" src="photos/schmeltzer.jpeg" alt="schmeltzer" title="כל רגע">
-            <img style="width: 323px;height: 233px;" src="photos/fried.jpeg" alt="fried" title="עיריית נתניה">
 
+            <div><img style="width: 100%" src="photos/the-orchestra-players-on-stage.webp"
+                    alt="the-orchestra-players-on-stage" title="ישראל היום"> </div>
+
+            <div style="width: 100%;">
+                <div class="main-div"><img class="img" src="photos/menni-in-concetr.jpg" alt="menni-in-concetr"
+                        title="מני דיסקינד - צילום יחצ"></div>
+                <div class="main-div"><img class="img" src="photos/razel.jpeg" alt="razel" title="בחדרי חרדים"></div>
+                <div class="main-div"><img class="img" src="photos/klain&bitan.jpg" alt="klain&bitan"
+                        title="בחדרי חרדים">
+                </div>
+                <div class="main-div"><img class="img" src="photos/helfgot.jpeg" alt="helfgot" title="בחדרי חרדים">
+                </div>
+                <div class="main-div"><img class="img" src="photos/schmeltzer.jpeg" alt="schmeltzer" title="כל רגע">
+                </div>
+                <div class="main-div"><img class="img" src="photos/fried.jpeg" alt="fried" title="עיריית נתניה"></div>
+            </div>
         </main>
 
 
     </div>
 
-    <div style="direction: rtl;">
+    <div style="direction: rtl;display: flex;align-items: center;">
 
-        <div style="display: inline-block;border: 5px solid black;">
+        <div style="display: inline-block;border: 5px solid black;width: 65%;">
 
             <article style="direction: rtl;">
-                <h2 style="border: 3px solid rgb(57, 149, 165);">?מה חדש</h2>
-                <DIV style="display: inline-block;border: 3px solid black;width: 50%;height: 250px;margin-bottom: 45px;">
-                    <H1>שמעיה פישר & נחמן דרייר - ויהי נעם</H1>
-                    <H5>"ויהי נעם" הוא שיר מרגש שמושר מדי שנה במירון, ממש לפני ההדלקה של בויאן. השיר, שהולחן על ידי הרב
-                        אהרן ברים, נוגע בנשמות בכל שנה בל"ג בעומר.
-                        <BR>
-                        השנה, לצערנו, איננו יכולים לחגוג את ל"ג בעומר עם רבי שמעון במירון, אך קדושת החג נשארת ללא שינוי.
-                        <BR>
-                        האזינו לגרסה זו שהקלטתי עם חברי הטוב הגיטריסט נחמן דרייר, אני מקווה שתיהנו.
-                        <BR>
-                        עיבוד מוזיקלי: משה יעקב | Upbeat Haven.<BR>
-                        גיטרות: נחמן דרייר.<BR>
-                        מיקס: V-Gold Production.<BR>
-                        וידאו: שימי סוקול.<BR>
-                        ניהול פרויקט ושיווק: SolBlum Media.
-                    </H5>
+                <h2 style="border-bottom: 3px solid black;">מה חדש?</h2>
+                <div class="container" style="display: flex; justify-content: space-between; padding: 0 15px;">
+                    <DIV style="display: inline-block; width: 55%; vertical-align:middle  ;">
+                        <H1>תנו רבנן - אברהם פריד, הערשי וויינבערגער</H1>
+                        <H5>סמוך לזמן קבלת התורה, אפשר להרגיש את ההתרגשות העמוקה של חידוש הקשר שלנו עם התורה. הנדנוד
+                            העדין
+                            של הלמידה וקצב המילים הזורמים מהדפים הנצחיים מקרבים אותנו אל השם יתברך, ויוצרים שרשרת בלתי
+                            נשברת
+                            המקשרת אותנו למורשת שלנו. חיים של תורה ועמל בלימודיה הם המפתח לשימור זהותנו ולהבטחת
+                            המשכיותנו
+                            כעם, יצירת קשר נצחי עם דורות עבר ועתיד.
+                            <BR>
+                            מתוך מחשבה על רעיון זה מציגים אברהם פריד והרשי וינברגר את "תוני רבנון" לכבוד חג השבועות.
+                            השיר
+                            הזה נועד להשאיר מתיקות בפה ולהרטיב את החיך ללמידה נוספת!
+                            <BR>
+                            קרדיטים מוזיקליים:
+                            הלחין, כתב והפקה: הרשי ויינברגר <br>
+                            ביצוע: אברהם פריד והרשי ויינברגר<br>
+                            מוזיקה עיבוד והפקה: דוני גרוס | סטודיו 311<br>
+                            סולן ילדים: שבתי מרדכי טייכמן<br>
+                            מקהלת מבוגרים: מקהלת ידידים | יואל הרש פוקס<br>
+                            הפקה ווקאלית: דוני גרוס | יוסי טייברג | אלי קליין ואיצי ברי | מנדי פקטה <br>
+                            מיקס ומאסטרד: יניב בלאס
+                        </H5>
 
-                </DIV>
-                <DIV style="display: inline-block;margin-right: 80px;">
-                    <img style="width: 323px;height: 283px;" src="photos/fisher&drayer.jpg"
-                        alt="fisher and drayer;">
-                </DIV>
+                    </DIV>
+                    <div class="image-container" style="width: 50%; display: flex; align-items: center;">
+                        <a href="https://youtu.be/vohubVz4xc4?si=lFlNYXMrI4JUiajS"><img
+                                style="width: 100%;height: 80%;object-fit: cover;" src="photos/tanu-rabanan.jpg"
+                                alt="tanu-rabanan;"></a>
+                    </div>
+                </div>
             </article>
-
-
         </div>
-        <div style="display: inline-block;">
-            <h1>hgi</h1>
+
+        <div style="display: inline-block;width: 30%;padding: 0 20px; text-align: center;font-size: 13px;">
+            <h3 style="background-color: beige;padding: 10px;">מילים:<br>
+                מיין קינד מיין קינד
+                צו ווילסטו הערן די שענסטע געזאנג אויף
+                דער וועלט,<br>
+
+                טאטעניו מיין, יא איך וויל הערן די שענסטע געזאנג אויף דער וועלט<br>
+
+                מיין קינד מיין קינד
+                איך וויל דיר יעצט זינגען די שענסטע געזאנג אויף די וועלט
+                טאטעניו מיין, זינג׳זשע פאר מיר די שענסטע געזאנג אויף די וועלט<br>
+
+                זינג מיט מיר<br>
+
+                תנו רבנן - האבן די רבנן געלערנט
+                יאמאמאמיי מיי
+                יאמאמאמיי מיי<br>
+                תנו רבנן האבן די רבנן געלערענט
+                יאמאמאמיי מיי
+                יאמאמאמיי מיי<br>
+
+                און די געזאנג האט מיין טאטע געהערט פון מיין זיידען א יעדן טאג
+                ווי ער האט געלערנט מיט דעי תנועה גאר שיין
+                מיט א מתיקות זיך צוזינגען און געזאגט<br>
+
+                תנו רבנן - האבן די רבנן געלערנט
+                יאמאמאמיי מיי
+                יאמאמאמיי מיי<br>
+                מאימתי קורין את שמע
+                יאמאמאמיי מיי
+                יאמאמאמיי מיי<br>
+
+                מיין קינד מיין ליבער קינד
+                צו ווילסטו הערן די הייליגסטע ניגון אויף דער וועלט
+                ליבער טאטעניו מיין, זינג׳זשע פאר מיר די הייליגסטע ניגון אויף דער וועלט<br>
+
+                זינג מיט מיר<br>
+
+                תנו רבנן… <br>
+
+                מיט דעם געזאנג מיין טאטע לערנט
+                פלייסיג, און איך טוה עס הערן יעדן פארטאגס,
+                און איך זעה שוין ווי ווען איך וועל עלטער ווערן, לערן איך מיט מיינע קינדערליך און איך זאג.<br>
+
+                תנו רבנן…<br>
+
+                טייערע טאטע און ליבער זיידע קומטס לאמיר זינגען דעם ניגון פון די גמרא,
+                יא מיין טייער קינד לאמיר לערנען ווייטער און ווייטער,
+                תנו רבנן יאמאמא מיי</h3>
+        </div>
+    </div>
+    <div style="direction: rtl;display: flex;align-items: center;">
+
+        <div style="display: inline-block;border: 5px solid black;width: 65%;">
+
+            <article style="direction: rtl;">
+                <h2 style="border-bottom: 3px solid black;"></h2>
+                <div class="container" style="display: flex; justify-content: space-between; padding: 0 15px;">
+                    <DIV style="display: inline-block; width: 55%; vertical-align:middle  ;">
+                        <H1>והיא שעמדה - מני דיסקינד<br> Vehi sheamda - menni diskind</H1>
+                        <H5>
+                            הזמר והיוצר מני דיסקינד בלהיט משובח לחג הפסח "והיא שעמדה"
+                            בליווי מקהלת ידידים העולמית.
+                            <BR>
+                            קרדיטים:<br>
+                            לחן: ר' חיים בנט<br>
+                            עיבוד ומיקס: יואלי צישינסקי<br>
+                            תופים: אבי אבידני<br>
+                            כינורות: zmirot strs group <br>
+                            בראס: מורן בראון רפי דווידוב וברמן<br>
+                            גיטרות: אבי סינגולדה<br>
+                            גיטרה בס: אלון הלל<br>
+                            פסנתרים וסינטי: יואלי צישינסקי<br>
+                            הוקלט באולפני זמירות-בנט<br>
+                            ביצוע: מני דיסקינד<br>
+                            מקהלה: ידידים העולמית<br>
+                            ניצוח ועיבוד למקהלה: יעקב רוטבלט<br>
+                            הפקה ויח"צ: מני דיסקינד - PMD הפקות
+                        </H5>
+
+                    </DIV>
+                    <div class="image-container" style="width: 50%; display: flex; align-items: center;">
+                        <a href="https://youtu.be/_fGCNRV6HDk?si=JzZda3J_AHP0BOBT"><img
+                                style="width: 100%;height: 80%;object-fit: cover;" src="photos/vehee sheamda-m.jpg"
+                                alt="vehee sheamda-m;"></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div style="display: inline-block;width: 30%;padding: 0 20px; text-align: center;">
+            <h3 style="background-color: beige;font-size: 25px;padding-top: 10px;">מילים:
+                <p style="font-size: 42px;padding: 0 10px 10px 10px;">
+                    וְהִיא שֶׁעָמְדָה לַאֲבוֹתֵינוּ וְלָנוּ<br>
+                    שֶׁלֹּא אֶחָד בִּלְבָד עָמַד עָלֵינוּ לְכַלּוֹתֵנוּ<br>
+                    אֶלָּא שֶׁבְּכָל דּוֹר וָדוֹר עוֹמְדִים עָלֵינוּ לְכַלּוֹתֵנוּ<br>
+                    וְהַקָּדוֹשׁ בָּרוּךְ הוּא מַצִּילֵנוּ מִיָּדָם
+                </p>
+            </h3>
         </div>
     </div>
 
+    <p style="margin-left: 300px;"> <a href="#top">חזור לעמוד ראשי</a> </p>
 
 </body>
 

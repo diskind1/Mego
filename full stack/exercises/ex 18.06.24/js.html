@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        alert('hello world')
+        let e = 3;
+        e = "3";
+        if (e != undefined && e != null) {
+            console.log("ok");
+        } else {
+            console.log("no ok");
+        }
+        myfunction(25, 56, 577);
+        function myfunction(p1, p2, p3) {
+            console.log("p1 = " + p1);
+            console.log("p2 = " + p2);
+            console.log("p3 = " + p3);
+            return;
+        }
+
+
+
+        function navigateToGoogle() {
+            window.innerWidth = "500px";
+        }
+
+        function printUserName() {
+            let name = document.getElementById("user-name").value;
+            console.log("user name = " + name);
+        }
+
+        function checkFields(value) {
+            return (value == undefined ||
+                value == null ||
+                value == '');
+
+        }
+
+        function checkFields() {
+            let requiredElements =
+                document.getElementsByClassName("mandatory");
+
+            for (let i = 0; i < requiredElements.length; i++) {
+                let el = requiredElements[i];
+                el.style.border = "1px solid black";
+                if (checkUnValidElement(el.value)) {
+                    el.style.border = "1px solid red";
+                }
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <p id="pElement">hello world</p>
+    <p>hello world</p>
+    <script>
+            document.getElementById("pElement").innerHTML = "hello world menni";
+    </script>
+    <input type="text" id="user-name" />
+    <button onclick="printUserName()">click here</button>
+    <br><br><br><br><br><br>
+    <input type="text" class="mandatory" /> <br>
+    <input type="text" class="mandatory" /> <br>
+    <input type="text" class="mandatory" /> <br>
+    <input type="text" class="mandatory" /> <br>
+    <input type="text" class="mandatory" /> <br>
+    <input type="text" class="mandatory" /> <br>
+    <button onclick="checkFields()">click here</button>
+
+
+</body>
+
+</html>

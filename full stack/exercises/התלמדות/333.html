@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון</title>
+    <script src="https://kit.fontawesome.com/c99e36d929.js" crossorigin="anonymous"></script>
+
+    <style>
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px; /* מרווח של 10 פיקסלים בין הכפתורים */
+            max-width: 200px;
+            margin: auto;
+        }
+        .calculator button {
+            padding: 20px;
+            font-size: 1.5em;
+        }
+        .output {
+            grid-column: span 4;
+            padding: 20px;
+            font-size: 2em;
+            text-align: right;
+        }
+
+        
+
+    </style>
+    
+</head>
+<body>
+    <div class="calculator">
+        <div class="output" id="output">0</div>
+        <button onclick="appendNumber(7)">7</button>
+        <button onclick="appendNumber(8)">8</button>
+        <button onclick="appendNumber(9)">9</button>
+        <button onclick="chooseOperation('÷')">÷</button>
+        <button onclick="appendNumber(4)">4</button>
+        <button onclick="appendNumber(5)">5</button>
+        <button onclick="appendNumber(6)">6</button>
+        <button onclick="chooseOperation('×')">×</button>
+        <button onclick="appendNumber(1)">1</button>
+        <button onclick="appendNumber(2)">2</button>
+        <button onclick="appendNumber(3)">3</button>
+        <button onclick="chooseOperation('-')">-</button>
+        <button onclick="appendNumber(0)">0</button>
+        <button onclick="appendDot()">.</button>
+        <button onclick="clearOutput()">C</button>
+        <button onclick="chooseOperation('+')">+</button>
+        <button onclick="computeResult()" style="grid-column: span 4;">=</button>
+    </div>
+    
+    <script>
+        let currentInput = '0';
+        let operation = null;
+        let previousInput = '';
+
+        const outputElement = document.getElementById('output');
+
+        function updateOutput() {
+            outputElement.innerText = currentInput;
+        }
+
+        function appendNumber(number) {
+            if (currentInput === '0') {
+                currentInput = number.toString();
+            } else {
+                currentInput += number.toString();
+            }
+            updateOutput();
+        }
+
+        function appendDot() {
+            if (!currentInput.includes('.')) {
+                currentInput += '.';
+            }
+            updateOutput();
+        }
+
+        function clearOutput() {
+            currentInput = '0';
+            operation = null;
+            previousInput = '';
+            updateOutput();
+        }
+
+        function chooseOperation(op) {
+            if (currentInput === '') return;
+            if (previousInput !== '') {
+                computeResult();
+            }
+            operation = op;
+            previousInput = currentInput;
+            currentInput = '';
+        }
+
+        function computeResult() {
+            let computation;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+            if (isNaN(prev) || isNaN(current)) return;
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '-':
+                    computation = prev - current;
+                    break;
+                case '×':
+                    computation = prev * current;
+                    break;
+                case '÷':
+                    computation = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            currentInput = computation.toString();
+            operation = null;
+            previousInput = '';
+            updateOutput();
+        }
+
+        function calculateFactorial() {
+    try {
+        const number = parseInt(currentResult); // המרת התוצאה למספר שלם
+        let factorial = 1;
+        for (let i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+        document.getElementById('result').value = factorial;
+    } catch (error) {
+        document.getElementById('result').value = 'Error';
+    }
+}
+
+
+function calculatePercentage() {
+    try {
+        const number = parseFloat(currentResult); // המרת התוצאה למספר עשרוני
+        const percentage = number / 100;
+        document.getElementById('result').value = percentage;
+    } catch (error) {
+        document.getElementById('result').value = 'Error';
+    }
+}
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+
+<body >
+    <div>
+    <button onclick="switchOn()">הדלק</button>
+    <img src="./images/pic_bulboff.gif" id="led" alt="bulboff">
+    <button onclick="switchoff()">כיבוי</button>
+
+    <img src="images/pic_bulboff.gif" id="led2" onclick="switchled()">
+</div>
+    <div id="leds"></div>
+
+    <script>
+        function switchoff() {
+            let imgElement = document.getElementById("led");
+            imgElement.src = "./images/pic_bulboff.gif";
+        }
+        function switchOn() {
+            let ledimg = document.getElementById("led")
+            ledimg.src = "./images/pic_bulbon.gif";
+        }
+        function switchled() {
+            let ledim = document.getElementById("led2");
+            if (ledim.src.indexOf("off") > -1) {
+                ledim.src = "./images/pic_bulbon.gif";
+            }
+            else ledim.src = "./images/pic_bulboff.gif";
+        }
+
+
+
+        function createLeds() {
+            let a = document.getElementById("leds");
+            let htmlLeds = "";
+            for (let i = 0; i < 30; i++) {
+                htmlLeds += '<img src= "./images/pic_bulboff.gif" onclick="switchled2(this)"/>';
+            }
+            a.innerHTML = htmlLeds;
+        }
+        function switchled2(this1) {
+            if (this1.src.indexOf("off") > -1) {
+                this1.src = "./images/pic_bulbon.gif";
+            }
+            else this1.src = "./images/pic_bulboff.gif";
+        }
+        createLeds()
+    </script>
+    
+</body>
+
+</html>

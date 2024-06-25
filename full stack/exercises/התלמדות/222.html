@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון פשוט</title>
+    <!-- הוספת Bootstrap CSS -->
+    <script src="https://kit.fontawesome.com/c99e36d929.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">מחשבון פשוט</h1>
+        <input type="text" id="result" class="form-control mb-3" readonly>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-primary btn-block" onclick="appendToResult('1')"><i class="fa-solid fa-1"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('2')"><i class="fa-solid fa-2"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('3')"><i class="fa-solid fa-3"></i></button>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-primary btn-block" onclick="appendToResult('4')"><i class="fa-solid fa-4"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('5')"><i class="fa-solid fa-5"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('6')"><i class="fa-solid fa-6"></i></button>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-primary btn-block" onclick="appendToResult('7')"><i class="fa-solid fa-7"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('8')"><i class="fa-solid fa-8"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('9')"><i class="fa-solid fa-9"></i></button>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-primary btn-block" onclick="appendToResult('+')"><i class="fa-solid fa-plus"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('-')"><i class="fa-solid fa-minus"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('/')"><i class="fa-solid fa-divide"></i></button>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-4">
+                <button class="btn btn-primary btn-block" onclick="appendToResult('*')"><i class="fa-solid fa-xmark"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('%')"><i class="fa-solid fa-percent"></i></button>
+                <button class="btn btn-primary btn-block" onclick="appendToResult('!')"><i class="fa-solid fa-exclamation"></i></button>
+            </div>
+        </div><br>
+        <!-- הוספת כפתורים נוספים עבור הפעולות האריתמטיות -->
+        <!-- ... -->
+        <button class="btn btn-success btn-block col-4" onclick="calculateResult()"><i class="fa-solid fa-equals"></i></button>
+        <button class="btn btn-danger btn-block col-4" onclick="clearResult()">ניקוי</button>
+
+        <!-- ... קוד אחר ... -->
+
+        <script>
+            // פונקציה לניקוי התוצאה
+            function clearResult() {
+                currentResult = ''; // אפס את התוצאה הנוכחית
+                document.getElementById('result').value = currentResult;
+            }
+        </script>
+    </div>
+
+
+    <!-- הוספת Bootstrap JS ו-JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let currentResult = ''; // משתנה לאחסון התוצאה הנוכחית
+
+        // הוספת מספר לתוצאה
+        function appendToResult(number) {
+            currentResult += number;
+            document.getElementById('result').value = currentResult;
+        }
+
+        // ביצוע החישוב
+        function calculateResult() {
+            try {
+                currentResult = eval(currentResult); // השתמש בפונקציית eval
+                document.getElementById('result').value = currentResult;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

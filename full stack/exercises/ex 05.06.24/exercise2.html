@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>טופס הרשמה</title>
+
+    <style>
+        div {
+
+            width: fit-content;
+            padding: 10px;
+            border-radius: 7px;
+
+
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    </style>
+</head>
+
+<body style="direction: rtl;background-color: rgb(139, 225, 225);">
+    <main>
+        <h1>טופס הרשמה</h1>
+        <div>
+            <form action="/submit" method="post">
+                <label for="fname">שם פרטי:</label><br>
+                <input type="text" id="fname" name="fname"><br>
+
+                <label for="lname">שם משפחה:</label><br>
+                <input type="text" id="lname" name="lname"><br>
+
+                <label for="email">כתובת מייל:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+        </div>
+        <div>
+            <label for="birthdate">תאריך לידה:</label><br>
+            <input type="date" id="birthdate" name="birthdate" required><br><br>
+        </div>
+
+        <div>
+            <label for="city">בחר עיר:</label><br>
+            <select name="city" id="city">
+                <option value="Eilat">אילת</option><br><br>
+                <option value="ashdod">אשדוד</option>
+                <option value="beher-sheva">באר שבע</option>
+                <option value="beit-shemesh">בית שמש</option>
+                <option value="haifa">חיפה</option>
+                <option value="tveria">טבריה </option>
+                <option value="Jerusalem">ירושלים</option>
+                <option value="tzfat">צפת</option>
+                <option value="kriat-shmona">קרית שמונה</option>
+                <option value="tel-aviv">תל אביב</option>
+            </select>
+        </div>
+        <div>
+            <label for="address">כתובת:</label><br>
+            <textarea name="address" rows="2" cols="20"></textarea>
+        </div>
+
+        <div>
+            <label>מין:</label><br>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">זכר</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">נקבה</label><br>
+        </div>
+
+
+        <div>
+            <label>תחביבים (בחירה מרובה):</label><br>
+            <input type="checkbox" id="hobby1" name="hobbies" value="ספורט">
+            <label for="hobby1">ספורט</label>
+            <input type="checkbox" id="hobby2" name="hobbies" value="קריאה">
+            <label for="hobby2">קריאה</label>
+            <input type="checkbox" id="hobby3" name="hobbies" value="אומנות">
+            <label for="hobby3">אומנות</label>
+            <!-- ועוד תחביבים... -->
+        </div>
+
+
+
+        <br><br>
+        <div>
+            <button type="submit">שלח</button>
+        </div>
+        </form>
+    </main>
+</body>
+
+</html>

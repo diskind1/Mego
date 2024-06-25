@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-utilities.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="container-fluid">
+    <button class="btn btn-secondary">click</button>
+    <button class="myBtn">my btn</button>
+
+    <div class="row">
+        <aside class="col-xs-1 col-3 bg-primary text-light">
+            <span class="">
+                aside
+            </span>
+            <span class="">
+                more
+            </span>
+        </aside>
+        <main class="col-xs-11 col-9 bg-success text-warning">
+            main
+        </main>
+    </div>
+
+    <div class="container mt-3">
+        <h3>Modal Example</h3>
+        <p>Click on the button to open the modal.</p>
+        
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+          Open modal
+        </button>
+      </div>
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">הודעת מערכת</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+              שלום לך אוריאל
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>כותרת 1</th>
+                <th>כותרת 2</th>
+                <th>כותרת 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>תוכן</td>
+                <td>תוכן</td>
+                <td>תוכן</td>
+            </tr>
+            <tr>
+                <td>תוכן</td>
+                <td>תוכן</td>
+                <td>תוכן</td>
+            </tr>
+            <tr>
+                <td>תוכן</td>
+                <td>תוכן</td>
+                <td>תוכן</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

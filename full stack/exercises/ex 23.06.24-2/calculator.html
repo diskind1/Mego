@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מחשבון פשוט</title>
+    <script src="https://kit.fontawesome.com/c99e36d929.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            /* מרווח של 10 פיקסלים בין הכפתורים */
+            max-width: 200px;
+            margin: auto;
+        }
+
+        .calculator button {
+            padding: 20px;
+            font-size: 1.5em;
+            width: 75px;height:75px;
+        }
+
+        .output {
+            grid-column: span 4;
+            padding: 20px;
+            font-size: 2em;
+            text-align: right;
+        }
+       
+
+    </style>
+    <script>
+        function calculateFactorial() {
+            try {
+                const number = parseInt(currentResult); // המרת התוצאה למספר שלם
+                let factorial = 1;
+                for (let i = 1; i <= number; i++) {
+                    factorial *= i;
+                }
+                document.getElementById('result').value = factorial;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+
+
+        function calculatePercentage() {
+            try {
+                const number = parseFloat(currentResult); // המרת התוצאה למספר עשרוני
+                const percentage = number / 100;
+                document.getElementById('result').value = percentage;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+        
+    </script>
+
+</head>
+
+<body style="text-align: center;">
+    <h1 class="mb-4">מחשבון</h1>
+    <input type="text" id="result" class="form-control mb-3" readonly style="width: 320px; margin-left: 670px;">
+    <div class="container mt-5 main">
+        <div class="calculator">
+            <button style="margin-top: 8px;" class="btn btn-primary btn-block" onclick="appendToResult('1')"><i
+                    class="fa-solid fa-1"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('2')"><i
+                    class="fa-solid fa-2"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('3')"><i
+                    class="fa-solid fa-3"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('4')"><i
+                    class="fa-solid fa-4"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('5')"><i
+                    class="fa-solid fa-5"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('6')"><i
+                    class="fa-solid fa-6"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('7')"><i
+                    class="fa-solid fa-7"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('8')"><i
+                    class="fa-solid fa-8"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('9')"><i
+                    class="fa-solid fa-9"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('0')"><i
+                    class="fa-solid fa-0"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('+')"><i
+                    class="fa-solid fa-plus"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('-')"><i
+                    class="fa-solid fa-minus"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('/')"><i
+                    class="fa-solid fa-divide"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('*')"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('.')">.</i></button>
+            <button class="btn btn-primary btn-block" onclick="calculatePercentage()"><i
+                    class="fa-solid fa-percent"></i></button>
+            <button class="btn" style="background-color: rgb(230, 235, 95);" onclick="calculateFactorial()"><i
+                    class="fa-solid fa-exclamation"></i></button>
+            <button class="btn btn-danger btn-block" onclick="clearResult()" ><i class="fa-solid fa-c"></i></button>
+            <button class="btn btn-success btn-block" onclick="calculateResult()" style="grid-column: span 4;"><i
+                    class="fa-solid fa-equals"></i></button>
+
+
+        </div>
+        <script>
+            function clearResult() {
+                currentResult = '';
+                document.getElementById('result').value = currentResult;
+            }
+        </script>
+
+
+    </div>
+    </div>
+    <!-- הוספת Bootstrap JS ו-JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        let currentResult = ''; // משתנה לאחסון התוצאה הנוכחית
+
+        // הוספת מספר לתוצאה
+        function appendToResult(number) {
+            currentResult += number;
+            document.getElementById('result').value = currentResult;
+        }
+
+        // ביצוע החישוב
+        function calculateResult() {
+            try {
+                currentResult = eval(currentResult); // השתמש בפונקציית eval
+                document.getElementById('result').value = currentResult;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+        let currentInput = '0';
+        let operation = null;
+        let previousInput = '';
+
+        const outputElement = document.getElementById('output');
+
+        function updateOutput() {
+            outputElement.innerText = currentInput;
+        }
+
+        function appendNumber(number) {
+            if (currentInput === '0') {
+                currentInput = number.toString();
+            } else {
+                currentInput += number.toString();
+            }
+            updateOutput();
+        }
+
+        function appendDot() {
+            if (!currentInput.includes('.')) {
+                currentInput += '.';
+            }
+            updateOutput();
+        }
+
+        function clearOutput() {
+            currentInput = '0';
+            operation = null;
+            previousInput = '';
+            updateOutput();
+        }
+
+        function chooseOperation(op) {
+            if (currentInput === '') return;
+            if (previousInput !== '') {
+                computeResult();
+            }
+            operation = op;
+            previousInput = currentInput;
+            currentInput = '';
+        }
+
+        function computeResult() {
+            let computation;
+            const prev = parseFloat(previousInput);
+            const current = parseFloat(currentInput);
+            if (isNaN(prev) || isNaN(current)) return;
+            switch (operation) {
+                case '+':
+                    computation = prev + current;
+                    break;
+                case '-':
+                    computation = prev - current;
+                    break;
+                case '×':
+                    computation = prev * current;
+                    break;
+                case '÷':
+                    computation = prev / current;
+                    break;
+                default:
+                    return;
+            }
+            currentInput = computation.toString();
+            operation = null;
+            previousInput = '';
+            updateOutput();
+        }
+
+        function calculateFactorial() {
+            try {
+                const number = parseInt(currentResult); // המרת התוצאה למספר שלם
+                let factorial = 1;
+                for (let i = 1; i <= number; i++) {
+                    factorial *= i;
+                }
+                document.getElementById('result').value = factorial;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+
+
+        function calculatePercentage() {
+            try {
+                const number = parseFloat(currentResult); // המרת התוצאה למספר עשרוני
+                const percentage = number / 100;
+                document.getElementById('result').value = percentage;
+            } catch (error) {
+                document.getElementById('result').value = 'Error';
+            }
+        }
+
+
+
+        
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
