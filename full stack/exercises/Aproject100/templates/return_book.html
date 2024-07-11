@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>החזרת ספר - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% extends "base.html" %}
+
+    {% block title %}החזרת ספר{% endblock %}
+
+    {% block content %}
+    <header class="main-header">
+        <img src="{{ url_for('static', filename='images/LogoMegoLibrary.png') }}" alt="לוגו הספרייה" class="logo">
+        <h1>הספרייה הציבורית שלנו</h1>
+        <div class="user-info">
+            <span id="userName">שלום, {{ username }}</span>
+            <a href="{{ url_for('logout') }}" id="logoutBtn">התנתק</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>החזרת ספר</h2>
+        <form method="POST" action="{{ url_for('return_book_page') }}">
+            <label for="book_id">מזהה הספר:</label>
+            <input type="text" id="book_id" name="book_id" required>
+            <button type="submit">החזר ספר</button>
+        </form>
+
+        <h3>או</h3>
+
+        <h2>החזרת ספר לפי מק"ט</h2>
+        <input type="text" id="returnSkuInput" placeholder="הכנס מק''ט להחזרה">
+        <button id="returnBook">החזר ספר</button>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='return_book.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

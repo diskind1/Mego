@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>גימטריה</title>
+	
+	<style>
+		.gimTableClass, 
+		.gimTableClass th,
+		.gimTableClass td {
+			border: 1px solid black;
+			width: 150px;
+			text-align: center;
+			min-width: 200px;
+			height: 25px;
+		}
+		
+		.nonCell {
+			background: lightgray;
+		}
+
+
+
+
+
+
+
+
+
+
+
+        body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(./images/Handasa.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1; /* שקיפות - ניתן לשנות לפי הצורך */
+    animation: backgroundAnimation 30s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: center 10%;
+    }
+    100% {
+        background-position: center -10%;
+    }
+}
+
+/* הוסף שקיפות לתוכן הראשי כדי שהרקע יהיה יותר נראה */
+main {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* סגנון נוסף לשיפור הקריאות */
+h1, h2 {
+    color: #333;
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 15%;
+    height: auto;
+    max-height: 150%;
+    padding: 0.5rem;
+}
+
+
+	</style>
+</head>
+<body dir="rtl" style="align-content: center; text-align: center;">
+	<div class="header-container">
+		<img src=" ./images/handasaLogo.png" alt="לוגו החברה" class="logo">
+		<div class="header-titles">
+			<h1>גימטריה</h1>
+			
+		</div>
+	</div>
+
+<table align="center" style="width:70%">
+<tr>
+	<td style="text-align: left;width: 45px;">
+		<span>ערך א':</span>
+	</td>
+	<td>
+		<input id="word1" type="text" onkeyup="myFunction(this, 1)" style="width:100%;height: 25px;">
+	</td>
+</tr>
+<tr>
+	<td style="text-align: left;width: 45px;">
+		<span>ערך ב':</span>
+	</td>
+	<td>
+		<input id="word1" type="text" onkeyup="myFunction(this, 2)" style="width:100%;height: 25px;">
+	</td>
+</tr>
+</table>
+
+<br>
+<br>
+
+<table class="gimTableClass" id="gimTable" align="center"></table>
+
+<br>
+<script>
+
+GIMATRIA = {
+	GIM_SIMPLE : {
+		name : "פשוט",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:10,
+			כ:20,
+			ך:20,
+			ל:30,
+			מ:40,
+			ם:40,
+			נ:50,
+			ן:50,
+			ס:60,
+			ע:70,
+			פ:80,
+			ף:80,
+			צ:90,
+			ץ:90,
+			ק:100,
+			ר:200,
+			ש:300,
+			ת:400,
+		}
+	}
+	, GIM_MANTZAPACH : {
+		name : "מנצפ''ך",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:10,
+			כ:20,
+			ל:30,
+			מ:40,
+			נ:50,
+			ס:60,
+			ע:70,
+			פ:80,
+			צ:90,
+			ק:100,
+			ר:200,
+			ש:300,
+			ת:400,
+			ך:500,
+			ם:600,
+			ן:700,
+			ף:800,
+			ץ:900
+		}
+	}
+	, GIM_LITTLE : {
+		name : "מספר קטן",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:1,
+			כ:2,
+			ך:2,
+			ל:3,
+			מ:4,
+			ם:4,
+			נ:5,
+			ן:5,
+			ס:6,
+			ע:7,
+			פ:8,
+			ף:8,
+			צ:9,
+			ץ:9,
+			ק:1,
+			ר:2,
+			ש:3,
+			ת:4,
+		}
+	}
+	, GIM_INCLUDE : {
+		name : "מספר כולל",
+		dict : {
+			א:1,
+			ב:3,
+			ג:6,
+			ד:10,
+			ה:15,
+			ו:21,
+			ז:28,
+			ח:36,
+			ט:45,
+			י:55,
+			כ:75,
+			ך:75,
+			ל:105,
+			מ:145,
+			ם:145,
+			נ:195,
+			ן:195,
+			ס:255,
+			ע:325,
+			פ:405,
+			ף:405,
+			צ:495,
+			ץ:495,
+			ק:595,
+			ר:795,
+			ש:1095,
+			ת:1495,
+		}
+	}
+	, GIM_SQUARE : {
+		name : "ריבוע",
+		dict : {
+			א:1,
+			ב:4,
+			ג:9,
+			ד:16,
+			ה:25,
+			ו:36,
+			ז:49,
+			ח:64,
+			ט:81,
+			י:100,
+			כ:400,
+			ך:400,
+			ל:900,
+			מ:1600,
+			ם:1600,
+			נ:2500,
+			ן:2500,
+			ס:3600,
+			ע:4900,
+			פ:6400,
+			ף:6400,
+			צ:8100,
+			ץ:8100,
+			ק:10000,
+			ר:40000,
+			ש:90000,
+			ת:160000,
+		}
+	}
+}
+
+
+document.addEventListener('DOMContentLoaded', function(){ 
+    
+	gimatriaTypes = Object.keys(GIMATRIA);
+	
+	gimTable = document.getElementById("gimTable");
+	var header = gimTable.createTHead();
+	var headerRow = header.insertRow(0); 
+	
+	var body = gimTable.createTBody();
+	var valuesRow1 = body.insertRow();
+	var valuesRow2 = body.insertRow();
+	
+	headerRow.insertCell().className = "nonCell";
+	valuesRow1.insertCell().innerHTML = "ערך א'";
+	valuesRow2.insertCell().innerHTML = "ערך ב'";
+	
+	for	(var gimIndex = 0; gimIndex < gimatriaTypes.length; gimIndex++)
+	{
+		var columnName = GIMATRIA[gimatriaTypes[gimIndex]].name;
+		
+		var headerCell = headerRow.insertCell();	
+		headerCell.innerHTML = "<b>" + columnName +"</b>";		
+		
+		valuesRow1.insertCell().innerHTML = 0;
+		valuesRow2.insertCell().innerHTML = 0;
+	}
+}, false);
+
+function myFunction(e, wordIndex) {
+	
+	for	(var gimIndex = 0; gimIndex < gimatriaTypes.length; gimIndex++)
+	{
+		var totalGimVal = 0;
+		
+		var gimatriaDict = GIMATRIA[gimatriaTypes[gimIndex]].dict;
+		
+		for	(var i=0; i<e.value.length;i++)
+		{
+			var gimVal = gimatriaDict[e.value[i]];
+			if (gimVal != undefined)
+			{
+				totalGimVal += gimVal;
+			}
+		}
+		
+		gimTable.rows[wordIndex].cells[gimIndex+1].innerText = totalGimVal;
+	}
+	
+	
+	findMatch();
+}
+
+function findMatch(){
+	for	(var cellIndex = 1 ; cellIndex < gimTable.rows[1].cells.length; cellIndex++)
+	{
+		if (gimTable.rows[1].cells[cellIndex].innerText !== "0" && gimTable.rows[1].cells[cellIndex].innerText === gimTable.rows[2].cells[cellIndex].innerText)	
+		{
+			gimTable.rows[1].cells[cellIndex].style.background = gimTable.rows[2].cells[cellIndex].style.background = "lightgreen"
+		}
+		else
+		{
+			gimTable.rows[1].cells[cellIndex].style.background = gimTable.rows[2].cells[cellIndex].style.background = ""
+		}
+	}
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<p>galgal works!</p>
+<img src="/img/galgal.png" alt="" style="width: 100px;height: 152px;">
+
+@for (y of [].constructor(4); track y; let count = $count){
+    <div>
+        num: {{y}}
+    </div>
+}
+
+
+
+<div *ngFor="let i of [].constructor(4)">
+<app-boreg></app-boreg>
+</div>
+
+
+<p *ngIf="Condition">Hello ng if</p>
+
+<button (click)="setCondition(2)">condition false</button>

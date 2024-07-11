@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צור קשר - דיסקינד</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>צור קשר</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">בית</a></li>
+                <li><a href="about.html">אודות</a></li>
+                <li><a href="services.html">שירותים</a></li>
+                <li><a href="projects.html">פרויקטים</a></li>
+                <li><a href="products.html">מוצרים</a></li>
+                <li><a href="gallery.html">גלריה</a></li>
+                <li><a href="contact.html">צור קשר</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>צור קשר</h2>
+            <p>אם יש לכם שאלות או הערות, אנא צרו קשר באמצעות הטופס הבא:</p>
+            <form action="mailto:info@diskind.com" method="post" enctype="text/plain">
+                <label for="name">שם:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">דוא"ל:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">הודעה:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <input type="submit" value="שלח">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 דיסקינד. כל הזכויות שמורות.</p>
+    </footer>
+</body>
+</html>

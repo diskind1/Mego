@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הוספת ספר חדש - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}הוספת ספר חדש{% endblock %}
+
+    {% block content %}
+    <h1>הוספת ספר חדש</h1>
+    <form method="POST" action="{{ url_for('add_book') }}">
+        <label for="title">כותרת:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="author">מחבר:</label>
+        <input type="text" id="author" name="author" required>
+
+        <label for="genre">ז'אנר:</label>
+        <input type="text" id="genre" name="genre" required>
+
+        <label for="sku">מק"ט:</label>
+        <input type="text" id="sku" name="sku" required>
+
+        <label for="quantity">כמות:</label>
+        <input type="number" id="quantity" name="quantity" required>
+
+        <button type="submit">הוסף ספר</button>
+    </form>
+    <a href="{{ url_for('dashboard') }}">חזרה ללוח הבקרה</a>
+    {% endblock %}
+
+    {% block scripts %}
+    <!-- אם יש צורך בסקריפט ספציפי לדף זה, הוסף אותו כאן -->
+    {% endblock %}
+</body>
+</html>

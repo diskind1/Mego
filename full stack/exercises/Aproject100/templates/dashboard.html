@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>לוח בקרה - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    {% extends "base.html" %}
+
+    {% block title %}לוח בקרה{% endblock %}
+
+    {% block content %}
+    <h1>לוח בקרה</h1>
+    <nav>
+        <a href="{{ url_for('books') }}">רשימת ספרים</a>
+        {% if is_librarian %}
+        <a href="{{ url_for('add_book') }}">הוסף ספר חדש</a>
+        {% endif %}
+        <a href="{{ url_for('borrow_book', book_id=0) }}">השאל ספר</a>
+        <a href="{{ url_for('return_book') }}">החזר ספר</a>
+        <a href="{{ url_for('logout') }}">התנתק</a>
+    </nav>
+    {% endblock %}
+</body>
+
+</html>

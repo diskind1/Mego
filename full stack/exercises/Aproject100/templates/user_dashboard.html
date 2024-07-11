@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>העמוד הראשי - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}לוח הבקרה שלי{% endblock %}
+
+    {% block content %}
+    <header class="main-header">
+        <img src="{{ url_for('static', filename='images/LogoMegoLibrary.png') }}" alt="לוגו הספרייה" class="logo">
+        <h1>הספרייה הציבורית שלנו</h1>
+        <div class="user-info">
+            <span id="userName">שלום, {{ username }}</span>
+            <a href="{{ url_for('logout') }}" id="logoutBtn">התנתק</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>ברוכים הבאים לספרייה!</h2>
+        <div class="dashboard-options">
+            <a href="{{ url_for('index') }}" class="dashboard-button">דף הבית</a>
+            <a href="{{ url_for('search_books') }}" class="dashboard-button">חיפוש ספר</a>
+            <a href="{{ url_for('borrow_book_page') }}" class="dashboard-button">השאלת ספר</a>
+            <a href="{{ url_for('return_book_page') }}" class="dashboard-button">החזרת ספר</a>
+        </div>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='user_dashboard.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

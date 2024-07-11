@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% extends "base.html" %}
+
+    {% block title %}הרשמה{% endblock %}
+
+    {% block content %}
+    <header class="main-header">
+        <img src="{{ url_for('static', filename='images/LogoMegoLibrary.png') }}" alt="לוגו הספרייה" class="logo">
+        <h1>הספרייה הציבורית שלנו</h1>
+    </header>
+    <main>
+        <h2>טופס הרשמה</h2>
+        <form id="registrationForm" method="POST" action="{{ url_for('register') }}">
+            <input type="text" name="firstName" placeholder="שם פרטי" required>
+            <input type="text" name="lastName" placeholder="שם משפחה" required>
+            <input type="text" name="idNumber" placeholder="מספר זהות" required maxlength="9">
+            <input type="email" name="email" placeholder="כתובת אימייל" required>
+            <input type="tel" name="phone" placeholder="מספר טלפון" required maxlength="10">
+            <input type="text" name="username" placeholder="שם משתמש" required>
+            <input type="password" name="password" placeholder="סיסמה" required>
+
+            <div>
+                <label>בחר שיטת תשלום:</label>
+                <select name="paymentMethod" id="paymentMethod" required>
+                    <option value="">בחר שיטת תשלום</option>
+                    <option value="credit">כרטיס אשראי</option>
+                    <option value="debit">הוראת קבע</option>
+                </select>
+            </div>
+
+            <div id="creditCardDetails" style="display: none;">
+                <input type="text" name="creditCardNumber" placeholder="מספר כרטיס אשראי" maxlength="16">
+                <input type="text" name="expirationDate" placeholder="תוקף (MM/YY)" maxlength="5">
+                <input type="text" name="cvv" placeholder="CVV" maxlength="3">
+            </div>
+
+            <div id="debitDetails" style="display: none;">
+                <p>להורדת טופס הוראת קבע, <a href="{{ url_for('static', filename='images/bank-transfer.pdf') }}" download>לחץ כאן</a></p>
+                <input type="file" name="debitForm" accept=".pdf">
+            </div>
+
+            <button type="submit">הירשם</button>
+        </form>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='register.js') }}"></script>
+    <script>
+        document.getElementById('paymentMethod').addEventListener('change', function() {
+            var creditCardDetails = document.getElementById('creditCardDetails');
+            var debitDetails = document.getElementById('debitDetails');
+            if (this.value === 'credit') {
+                creditCardDetails.style.display = 'block';
+                debitDetails.style.display = 'none';
+            } else if (this.value === 'debit') {
+                creditCardDetails.style.display = 'none';
+                debitDetails.style.display = 'block';
+            } else {
+                creditCardDetails.style.display = 'none';
+                debitDetails.style.display = 'none';
+            }
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חיפוש ספרים - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        nav {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-space {
+    margin-right: 20px; /* כאן ניתן לשנות את הרווח לפי הצורך */
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <img src="./images/LogoMegoLibrary.png" alt="לוגו הספרייה" class="logo" style="width: 15%;height: 15%;">
+        <h1>הספרייה הציבורית שלנו</h1>
+    </header>
+    <nav>
+        <a href="index.html">דף הבית</a>
+        <span class="menu-space"></span>
+        <a href="borrow_book.html">השאלת ספר</a>
+        <span class="menu-space"></span>
+        <a href="return_book.html">החזרת ספר</a>
+    </nav>
+    
+    <main>
+        <h2>חיפוש ספרים</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="חפש ספר...">
+            <select id="genreFilter">
+                <option value="">כל הז'אנרים</option>
+                <option value="מתח">מתח</option>
+                <option value="קומדיה">קומדיה</option>
+                <option value="רומן">רומן</option>
+                <option value="מדע בדיוני">מדע בדיוני</option>
+                <option value="היסטוריה">היסטוריה</option>
+                <option value="קודש">קודש</option>
+            </select>
+
+
+            <input type="text" id="skuInput" placeholder="חיפוש לפי מק''ט">
+            <button onclick="searchBySKU()">חפש לפי מק"ט</button>
+            <ul id="bookList"></ul>
+
+        </div>
+        <ul id="bookList"></ul>
+    </main>
+
+    <script src="search_books.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשמה - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="main-header">
+        <img src="./images/LogoMegoLibrary.png" alt="לוגו הספרייה" class="logo" style="width: 15%;height: 15%;">
+        <h1>הספרייה הציבורית שלנו</h1>
+    </header>
+
+    <main>
+        <h2>טופס הרשמה</h2>
+        <form id="registrationForm" action="create_account.html" method="post">
+            <input type="text" id="firstName" placeholder="שם פרטי" required>
+            <input type="text" id="lastName" placeholder="שם משפחה" required>
+            <input type="text" id="idNumber" placeholder="מספר זהות" required maxlength="9">
+            <input type="email" id="email" placeholder="כתובת אימייל" required>
+            <input type="tel" id="phone" placeholder="מספר טלפון" required maxlength="10">
+
+            <div>
+                <label>בחר שיטת תשלום:</label>
+                <select id="paymentMethod" required>
+                    <option value="">בחר שיטת תשלום</option>
+                    <option value="credit">כרטיס אשראי</option>
+                    <option value="debit">הוראת קבע</option>
+                </select>
+            </div>
+
+            <div id="creditCardDetails" style="display: none;">
+                <input type="text" id="creditCardNumber" placeholder="מספר כרטיס אשראי" maxlength="16">
+                <input type="text" id="expirationDate" placeholder="תוקף (MM/YY)" maxlength="5">
+                <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+            </div>
+
+            <div id="debitDetails" style="display: none;">
+                <p>להורדת טופס הוראת קבע, <a href="./images/bank-transfer.pdf" download>לחץ כאן</a></p>
+                <input type="file" id="debitForm" accept=".pdf">
+            </div>
+
+            <button type="submit">המשך להגדרת חשבון</button>
+        </form>
+    </main>
+
+    <script src="register.js"></script>
+</body>
+</html>
+

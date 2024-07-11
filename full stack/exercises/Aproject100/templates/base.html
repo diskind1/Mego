@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ספרייה ציבורית{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/LogoMegoLibrary.png') }}" alt="לוגו הספרייה" class="logo">
+        <h1>הספרייה הציבורית שלנו</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">דף הבית</a>
+            <a href="{{ url_for('books') }}">רשימת ספרים</a>
+            <a href="{{ url_for('borrow_book_page') }}">השאלת ספר</a>
+            <a href="{{ url_for('return_book_page') }}">החזרת ספר</a>
+            {% if 'user_id' in session %}
+                <a href="{{ url_for('logout') }}">התנתק</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">התחבר</a>
+                <a href="{{ url_for('register') }}">הרשמה</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2024 הספרייה הציבורית. כל הזכויות שמורות.</p>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>

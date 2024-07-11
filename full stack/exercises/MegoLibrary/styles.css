@@ -1,0 +1,188 @@
+/* כללי */
+body {
+    background-color: blanchedalmond;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* כותרת ראשית */
+.main-header {
+    display: flex;
+    align-items: center;
+    background-color: lightgrey;
+    padding: 1rem;
+}
+
+.logo {
+    width: 15%;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.user-info {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+/* טפסים */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input, 
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form button,
+#loginBtn,
+.dashboard-button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover,
+#loginBtn:hover,
+.dashboard-button:hover {
+    background-color: #45a049;
+}
+
+#loginBtn {
+    width: 100px;
+    height: 50px;
+}
+
+/* חיפוש ספרים */
+.search-container {
+    margin-bottom: 1rem;
+}
+
+#searchInput, 
+#genreFilter {
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+#bookList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bookList li {
+    padding: 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+#bookList li.unavailable {
+    color: #888;
+    background-color: #f0cece;
+}
+
+/* לוח מחוונים */
+.dashboard-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.dashboard-button {
+    padding: 15px 30px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* דרישות סיסמה */
+#passwordRequirements {
+    font-size: 0.8em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+.unavailable {
+    color: rgb(251, 39, 46);
+}
+
+
+
+
+
+
+
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(./images/sifria.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* שקיפות - ניתן לשנות לפי הצורך */
+    animation: backgroundAnimation 30s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: center 10%;
+    }
+    100% {
+        background-position: center -10%;
+    }
+}
+
+/* הוסף שקיפות לתוכן הראשי כדי שהרקע יהיה יותר נראה */
+main {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* סגנון נוסף לשיפור הקריאות */
+h1, h2 {
+    color: #333;
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}

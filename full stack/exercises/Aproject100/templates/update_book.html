@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עדכון ספר - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}עדכון ספר{% endblock %}
+
+    {% block content %}
+    <h2>עדכון ספר</h2>
+    <form method="POST" action="{{ url_for('update_book', book_id=book.BookID) }}">
+        <label for="title">כותרת:</label>
+        <input type="text" id="title" name="title" value="{{ book.Title }}" required>
+
+        <label for="author">מחבר:</label>
+        <input type="text" id="author" name="author" value="{{ book.Author }}" required>
+
+        <label for="genre">ז'אנר:</label>
+        <input type="text" id="genre" name="genre" value="{{ book.Genre }}" required>
+
+        <label for="sku">מק"ט:</label>
+        <input type="text" id="sku" name="sku" value="{{ book.SKU }}" required>
+
+        <label for="quantity">כמות:</label>
+        <input type="number" id="quantity" name="quantity" value="{{ book.Quantity }}" required>
+
+        <button type="submit">עדכן ספר</button>
+    </form>
+    <a href="{{ url_for('books') }}">חזרה לרשימת הספרים</a>
+    {% endblock %}
+
+    {% block scripts %}
+    <!-- אם יש צורך בסקריפט ספציפי לדף זה, הוסף אותו כאן -->
+    {% endblock %}
+</body>
+</html>

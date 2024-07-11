@@ -17,10 +17,11 @@
             margin: auto;
         }
 
-        .calculator button {
+        .calculator .button {
             padding: 20px;
             font-size: 1.5em;
-            width: 75px;height:75px;
+            width: 75px;
+            height: 75px;
         }
 
         .output {
@@ -29,8 +30,17 @@
             font-size: 2em;
             text-align: right;
         }
-       
+        
 
+        @module Rematrix */
+        /**
+	 * Transformation matrices in the browser come in two flavors:
+	 *
+	 *  - `matrix` using 6 values (short)
+	 *  - `matrix3d` using 16 values (long)
+	 *
+	 * This utility follows this [conversion guide](                     )
+	 * to expand short form matrices to their equivalent long form.
     </style>
     <script>
         function calculateFactorial() {
@@ -56,6 +66,19 @@
                 document.getElementById('result').value = 'Error';
             }
         }
+       
+        function keydownHandler(e) {
+            console.log(e.code)
+            if(e.code === "Enter") this.calculateResult()
+            if(e.code === "Backspace") this.clearResult()
+            if(e.code.includes("Key")) {
+                e.target.value = e.target.value.slice(e.target.value.length)
+                return
+
+                
+            }
+
+        }
         
     </script>
 
@@ -63,7 +86,7 @@
 
 <body style="text-align: center;">
     <h1 class="mb-4">מחשבון</h1>
-    <input type="text" id="result" class="form-control mb-3" readonly style="width: 320px; margin-left: 670px;">
+    <input type="text" id="result" onkeyup="keydownHandler(event)" class="form-control mb-3" style="width: 320px; margin-left: 620px;">
     <div class="container mt-5 main">
         <div class="calculator">
             <button style="margin-top: 8px;" class="btn btn-primary btn-block" onclick="appendToResult('1')"><i
@@ -72,37 +95,37 @@
                     class="fa-solid fa-2"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('3')"><i
                     class="fa-solid fa-3"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('+')"><i
+                    class="fa-solid fa-plus"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('4')"><i
                     class="fa-solid fa-4"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('5')"><i
                     class="fa-solid fa-5"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('6')"><i
                     class="fa-solid fa-6"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('-')"><i
+                    class="fa-solid fa-minus"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('7')"><i
                     class="fa-solid fa-7"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('8')"><i
                     class="fa-solid fa-8"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('9')"><i
                     class="fa-solid fa-9"></i></button>
-            <button class="btn btn-primary btn-block" onclick="appendToResult('0')"><i
-                    class="fa-solid fa-0"></i></button>
-            <button class="btn btn-primary btn-block" onclick="appendToResult('+')"><i
-                    class="fa-solid fa-plus"></i></button>
-            <button class="btn btn-primary btn-block" onclick="appendToResult('-')"><i
-                    class="fa-solid fa-minus"></i></button>
-            <button class="btn btn-primary btn-block" onclick="appendToResult('/')"><i
-                    class="fa-solid fa-divide"></i></button>
             <button class="btn btn-primary btn-block" onclick="appendToResult('*')"><i
                     class="fa-solid fa-xmark"></i></button>
-            <button class="btn btn-primary btn-block" onclick="appendToResult('.')">.</i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('0')"><i
+                    class="fa-solid fa-0"></i></button>
+            <button class="btn btn-primary btn-block" onclick="appendToResult('.')">.</button>
             <button class="btn btn-primary btn-block" onclick="calculatePercentage()"><i
                     class="fa-solid fa-percent"></i></button>
-            <button class="btn" style="background-color: rgb(230, 235, 95);" onclick="calculateFactorial()"><i
-                    class="fa-solid fa-exclamation"></i></button>
-            <button class="btn btn-danger btn-block" onclick="clearResult()" ><i class="fa-solid fa-c"></i></button>
-            <button class="btn btn-success btn-block" onclick="calculateResult()" style="grid-column: span 4;"><i
+            <button class="btn btn-primary btn-block" onclick="appendToResult('/')"><i
+                    class="fa-solid fa-divide"></i></button>
+            <button class="btn btn-danger btn-block" onclick="clearResult()"><i class="fa-solid fa-c"></i></button>
+            <button class="btn btn-danger btn-block" style="background-color: rgb(230, 235, 95);"
+                onclick="calculateFactorial()"><i class="fa-solid fa-exclamation"></i></button>
+            <button class="btn btn-danger btn-block btn-success btn-block"
+                style="background-color: rgb(23, 235, 95);grid-column: span 4;" onclick="calculateResult()"><i
                     class="fa-solid fa-equals"></i></button>
-
 
         </div>
         <script>
@@ -114,25 +137,22 @@
 
 
     </div>
-    </div>
-    <!-- הוספת Bootstrap JS ו-JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        let currentResult = ''; // משתנה לאחסון התוצאה הנוכחית
+        let currentResult = ''; 
 
-        // הוספת מספר לתוצאה
         function appendToResult(number) {
             currentResult += number;
             document.getElementById('result').value = currentResult;
         }
 
-        // ביצוע החישוב
         function calculateResult() {
+            const res = document.getElementById("result")
             try {
-                currentResult = eval(currentResult); // השתמש בפונקציית eval
+                currentResult = eval(res.value); // השתמש בפונקציית eval
                 document.getElementById('result').value = currentResult;
             } catch (error) {
                 document.getElementById('result').value = 'Error';
@@ -149,7 +169,7 @@
 
 
 
-            
+
 
 
 
@@ -249,10 +269,6 @@
                 document.getElementById('result').value = 'Error';
             }
         }
-
-
-
-        
 
 
 

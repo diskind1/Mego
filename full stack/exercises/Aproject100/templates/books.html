@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת ספרים - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}רשימת ספרים{% endblock %}
+
+    {% block content %}
+    <h1>רשימת ספרים</h1>
+    <ul>
+        {% for book in books %}
+        <li>
+            {{ book.Title }} מאת {{ book.Author }} ({{ book.Genre }}) - 
+            מק"ט: {{ book.SKU }}, כמות: {{ book.Quantity }}
+            {% if book.Quantity > 0 %}
+                <a href="{{ url_for('borrow_book', book_id=book.BookID) }}">השאל</a>
+            {% else %}
+                <span>לא זמין</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('dashboard') }}">חזרה ללוח הבקרה</a>
+    {% endblock %}
+
+    {% block scripts %}
+    <!-- אם יש צורך בסקריפט ספציפי לדף זה, הוסף אותו כאן -->
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,374 @@
+/* Reset ובסיס */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Heebo', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* טיפוגרפיה */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 15px;
+    color: #1e88e5;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #1e88e5;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1565c0;
+}
+
+/* כותרת עליונה */
+header {
+    position: relative;
+    background-color: #1e88e5;
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 15%;
+    height: auto;
+    max-height: 150%;
+    padding: 0.5rem;
+}
+
+.header-text-nav {
+    text-align: center;
+}
+
+.header-titles {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+    color: white;
+}
+
+header h2 {
+    font-size: 1.2em;
+    color: #e3f2fd;
+}
+
+/* ניווט */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* תוכן ראשי */
+main {
+    padding: 40px 0;
+}
+
+.link-category {
+    margin-bottom: 40px;
+}
+
+.link-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.link-grid a {
+    background-color: #fff;
+    padding: 15px;
+    text-align: center;
+    color: #1e88e5;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.link-grid a:hover {
+    background-color: #1e88e5;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* פרויקטים */
+#projects div {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#projects h3 {
+    color: #1e88e5;
+    margin-bottom: 10px;
+}
+
+#projects img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* מוצרים */
+.product {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product img {
+    max-width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 15px;
+    border-radius: 5px;
+}
+
+/* גלריה */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.gallery img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 1.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.7);
+}
+
+/* טופס יצירת קשר */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    background-color: #1e88e5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #1565c0;
+}
+
+/* כותרת תחתונה */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer nav a {
+    color: #e3f2fd;
+    margin: 0 10px;
+}
+
+/* מדיה queries לתגובתיות */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+        max-width: 30%;
+        margin-bottom: 1rem;
+    }
+
+    .header-titles {
+        text-align: center;
+    }
+
+    .link-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .link-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* רקע אנימציה */
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(./images/Handasa.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    animation: backgroundAnimation 30s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: center 10%;
+    }
+    100% {
+        background-position: center -10%;
+    }
+}
+
+/* הוסף שקיפות לתוכן הראשי כדי שהרקע יהיה יותר נראה */
+main {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* סגנון נוסף לשיפור הקריאות */
+h1, h2 {
+    color: #333;
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}

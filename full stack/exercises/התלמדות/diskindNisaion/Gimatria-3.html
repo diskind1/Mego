@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>גימטריה 1.2</title>
+	
+	<style>
+		.gimTableClass, 
+		.gimTableClass th,
+		.gimTableClass td {
+			border: 1px solid black;
+			text-align: center;
+			min-width: 150px;
+			height: 25px;
+		}
+		
+		.gimTableClass{
+			width: 100%;
+		}
+		
+		.nonCell {
+			background: lightgray;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url(./images/Handasa.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1; /* שקיפות - ניתן לשנות לפי הצורך */
+    animation: backgroundAnimation 30s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: center;
+    }
+    50% {
+        background-position: center 10%;
+    }
+    100% {
+        background-position: center -10%;
+    }
+}
+
+/* הוסף שקיפות לתוכן הראשי כדי שהרקע יהיה יותר נראה */
+main {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* סגנון נוסף לשיפור הקריאות */
+h1, h2 {
+    color: #333;
+}
+
+input, select, button {
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 15%;
+    height: auto;
+    max-height: 150%;
+    padding: 0.5rem;
+}
+
+	</style>
+</head>
+<body dir="rtl" style="align-content: center; text-align: center;">
+	<div class="header-container">
+		<img src=" ./images/handasaLogo.png" alt="לוגו החברה" class="logo">
+		<div class="header-titles">
+			
+			<h1>גימטריה</h1>
+		</div>
+	</div>
+
+<table align="center" style="width:70%">
+<tr>
+	<td rowspan="2" style="width: 55px;">
+		<input type="image" tabindex="-1" style="width: 30px;" onclick="replaceWithAtBash(1)" title="החלף את הערך עם הא''ת ב''ש" 
+		src="data:image/png;base64, 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" />
+	</td>
+	<td style="text-align: left;width: 55px;">
+		<span>ערך א':</span>
+	</td>
+	<td>
+		<input id="word1" type="text" onkeyup="myFunction(this, 1)" style="width:100%;height: 25px;">
+	</td>
+</tr>
+<tr>
+	<td style="text-align: left;width: 45px;">
+		<span style="color: gray;">את בש:</span>
+	</td>
+	<td>
+		<span id="atbash1" style="float: right;margin-right: 7px;color: gray;width: 100%;text-align: right;font-size: 14px;"></span>
+	</td>
+</tr>
+<tr>
+	<td rowspan="2" style="width: 45px;">
+		<input type="image" tabindex="-1" style="width: 30px;" onclick="replaceWithAtBash(2)" title="החלף את הערך עם הא''ת ב''ש" 
+		src="data:image/png;base64, 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" />
+	</td>
+	<td style="text-align: left;width: 45px;">
+		<span>ערך ב':</span>
+	</td>
+	<td>
+		<input id="word2" type="text" onkeyup="myFunction(this, 2)" style="width:100%;height: 25px;">
+	</td>
+</tr>
+<tr>
+	<td style="text-align: left;width: 45px;">
+		<span style="color: gray;">את בש:</span>
+	</td>
+	<td>
+		<span id="atbash2" style="float: right;margin-right: 7px;color: gray;width: 100%;text-align: right;font-size: 14px;"></span>
+	</td>
+</tr>
+</table>
+
+<br>
+<br>
+
+<table class="gimTableClass" id="gimTable" align="center"></table>
+
+<br>
+<script>
+
+AT_BASH = {
+	א:'ת',
+	ב:'ש',
+	ג:'ר',
+	ד:'ק',
+	ה:'צ',
+	ו:'פ',
+	ז:'ע',
+	ח:'ס',
+	ט:'נ',
+	י:'מ',
+	כ:'ל',
+	ך:'ל',
+	ל:'כ',
+	מ:'י',
+	ם:'י',
+	נ:'ט',
+	ן:'ט',
+	ס:'ח',
+	ע:'ז',
+	פ:'ו',
+	ף:'ו',
+	צ:'ה',
+	ץ:'ה',
+	ק:'ד',
+	ר:'ג',
+	ש:'ב',
+	ת:'א',
+};
+
+GIMATRIA = {
+	GIM_SIMPLE : {
+		name : "פשוט",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:10,
+			כ:20,
+			ך:20,
+			ל:30,
+			מ:40,
+			ם:40,
+			נ:50,
+			ן:50,
+			ס:60,
+			ע:70,
+			פ:80,
+			ף:80,
+			צ:90,
+			ץ:90,
+			ק:100,
+			ר:200,
+			ש:300,
+			ת:400,
+		}
+	}
+	, GIM_MANTZAPACH : {
+		name : "מנצפ''ך",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:10,
+			כ:20,
+			ל:30,
+			מ:40,
+			נ:50,
+			ס:60,
+			ע:70,
+			פ:80,
+			צ:90,
+			ק:100,
+			ר:200,
+			ש:300,
+			ת:400,
+			ך:500,
+			ם:600,
+			ן:700,
+			ף:800,
+			ץ:900
+		}
+	}
+	, GIM_LITTLE : {
+		name : "מספר קטן",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:1,
+			כ:2,
+			ך:2,
+			ל:3,
+			מ:4,
+			ם:4,
+			נ:5,
+			ן:5,
+			ס:6,
+			ע:7,
+			פ:8,
+			ף:8,
+			צ:9,
+			ץ:9,
+			ק:1,
+			ר:2,
+			ש:3,
+			ת:4,
+		}
+	}
+	, GIM_INCLUDE : {
+		name : "מספר כולל",
+		dict : {
+			א:1,
+			ב:3,
+			ג:6,
+			ד:10,
+			ה:15,
+			ו:21,
+			ז:28,
+			ח:36,
+			ט:45,
+			י:55,
+			כ:75,
+			ך:75,
+			ל:105,
+			מ:145,
+			ם:145,
+			נ:195,
+			ן:195,
+			ס:255,
+			ע:325,
+			פ:405,
+			ף:405,
+			צ:495,
+			ץ:495,
+			ק:595,
+			ר:795,
+			ש:1095,
+			ת:1495,
+		}
+	}
+	, GIM_SQUARE : {
+		name : "ריבוע",
+		dict : {
+			א:1,
+			ב:4,
+			ג:9,
+			ד:16,
+			ה:25,
+			ו:36,
+			ז:49,
+			ח:64,
+			ט:81,
+			י:100,
+			כ:400,
+			ך:400,
+			ל:900,
+			מ:1600,
+			ם:1600,
+			נ:2500,
+			ן:2500,
+			ס:3600,
+			ע:4900,
+			פ:6400,
+			ף:6400,
+			צ:8100,
+			ץ:8100,
+			ק:10000,
+			ר:40000,
+			ש:90000,
+			ת:160000,
+		}
+	}
+	, GIM_SEQUENCE : {
+		name : "סידורי",
+		dict : {
+			א:1,
+			ב:2,
+			ג:3,
+			ד:4,
+			ה:5,
+			ו:6,
+			ז:7,
+			ח:8,
+			ט:9,
+			י:10,
+			כ:11,
+			ך:11,
+			ל:12,
+			מ:13,
+			ם:13,
+			נ:14,
+			ן:14,
+			ס:15,
+			ע:16,
+			פ:17,
+			ף:17,
+			צ:18,
+			ץ:18,
+			ק:19,
+			ר:20,
+			ש:21,
+			ת:22,
+		}
+	}
+	, GIM_ATBASH : {
+		name : "א''ת ב''ש",
+		dict : {
+			א:400,
+			ב:300,
+			ג:200,
+			ד:100,
+			ה:90,
+			ו:80,
+			ז:70,
+			ח:60,
+			ט:50,
+			י:40,
+			כ:30,
+			ך:30,
+			ל:20,
+			מ:10,
+			ם:10,
+			נ:9,
+			ן:9,
+			ס:8,
+			ע:7,
+			פ:6,
+			ף:6,
+			צ:5,
+			ץ:5,
+			ק:4,
+			ר:3,
+			ש:2,
+			ת:1,
+		}
+	}
+}
+
+
+document.addEventListener('DOMContentLoaded', function(){ 
+    
+	gimatriaTypes = Object.keys(GIMATRIA);
+	
+	gimTable = document.getElementById("gimTable");
+	var header = gimTable.createTHead();
+	var headerRow = header.insertRow(0); 
+	
+	var body = gimTable.createTBody();
+	var valuesRow1 = body.insertRow();
+	var valuesRow2 = body.insertRow();
+	var diffRow = body.insertRow();
+	
+	headerRow.insertCell().className = "nonCell";
+	valuesRow1.insertCell().innerHTML = "ערך א'";
+	valuesRow2.insertCell().innerHTML = "ערך ב'";
+	diffRow.insertCell().innerHTML = "הפרש";
+	
+	for	(var gimIndex = 0; gimIndex < gimatriaTypes.length; gimIndex++)
+	{
+		var columnName = GIMATRIA[gimatriaTypes[gimIndex]].name;
+		
+		var headerCell = headerRow.insertCell();	
+		headerCell.innerHTML = "<b>" + columnName +"</b>";		
+		
+		valuesRow1.insertCell().innerHTML = 0;
+		valuesRow2.insertCell().innerHTML = 0;
+		diffRow.insertCell().innerHTML = 0;
+	}
+
+	/*
+	// Add the At-Bash column
+	var headerCell = headerRow.insertCell();	
+	headerCell.innerHTML = "<b>א''ת ב''ש</b>";		
+	
+	valuesRow1.insertCell().innerHTML = 0;
+	valuesRow2.insertCell().innerHTML = 0;
+	diffRow.insertCell().innerHTML = 0;
+	*/
+}, false);
+
+function replaceWithAtBash(valIndex)
+{
+	var atBashVal = document.getElementById('atbash' + valIndex).innerHTML;
+	var mainVal = document.getElementById('word' + valIndex);
+	mainVal.value = atBashVal;
+	mainVal.onkeyup()
+}
+
+function myFunction(e, wordIndex) {
+	
+	// Calc the sentence in At Bash 
+	var at_bash_sentence = '';
+	
+	for	(var i=0; i<e.value.length;i++)
+	{
+		var at_bash_letter = AT_BASH[e.value[i]];
+		if (at_bash_letter != undefined)
+		{
+			at_bash_sentence += at_bash_letter;
+		}
+		else{
+			at_bash_sentence += e.value[i];
+		}		
+	}
+	document.getElementById('atbash' + wordIndex).innerHTML = at_bash_sentence;
+	
+	// Calc all the gimatrias 
+	for	(var gimIndex = 0; gimIndex < gimatriaTypes.length; gimIndex++)
+	{
+		var totalGimVal = 0;
+		
+		var gimatriaDict = GIMATRIA[gimatriaTypes[gimIndex]].dict;
+		
+		for	(var i=0; i<e.value.length;i++)
+		{
+			var gimVal = gimatriaDict[e.value[i]];
+			if (gimVal != undefined)
+			{
+				totalGimVal += gimVal;
+			}
+		}
+		
+		gimTable.rows[wordIndex].cells[gimIndex+1].innerText = totalGimVal;
+	
+	}
+	
+	calcDiff();
+	findMatch();
+}
+
+function calcDiff(){
+	for	(var cellIndex = 1 ; cellIndex < gimTable.rows[1].cells.length; cellIndex++)
+	{
+		var diff = Math.abs(gimTable.rows[1].cells[cellIndex].innerText - gimTable.rows[2].cells[cellIndex].innerText);
+		gimTable.rows[3].cells[cellIndex].innerText = diff;
+	}
+}
+
+function findMatch(){
+	// Find match in the same column
+	for	(var cellIndex = 1 ; cellIndex < gimTable.rows[1].cells.length; cellIndex++)
+	{
+		if (gimTable.rows[1].cells[cellIndex].innerText !== "0" && gimTable.rows[1].cells[cellIndex].innerText === gimTable.rows[2].cells[cellIndex].innerText)	
+		{
+			gimTable.rows[1].cells[cellIndex].style.background = gimTable.rows[2].cells[cellIndex].style.background = "lightgreen";
+		}
+		else
+		{
+			gimTable.rows[1].cells[cellIndex].style.background = gimTable.rows[2].cells[cellIndex].style.background = "";
+		}
+	}
+	
+	// Find match in different column
+	for	(var firstValCellIndex = 1 ; firstValCellIndex < gimTable.rows[1].cells.length; firstValCellIndex++)
+	{
+		// if the cell already matched or the value is 0
+		if ((gimTable.rows[1].cells[firstValCellIndex].style.background != "") || gimTable.rows[1].cells[firstValCellIndex].innerText === "0")
+			continue;
+		
+		for	(var secondValCellIndex = 1 ; secondValCellIndex < gimTable.rows[1].cells.length; secondValCellIndex++)
+		{
+			// Skip the same column or cell that already matched or the value is 0
+			if ((firstValCellIndex == secondValCellIndex) || (gimTable.rows[2].cells[secondValCellIndex].style.background != "") || gimTable.rows[2].cells[secondValCellIndex].innerText === "0")
+				continue;
+				
+			if (gimTable.rows[1].cells[firstValCellIndex].innerText === gimTable.rows[2].cells[secondValCellIndex].innerText)	
+			{
+				gimTable.rows[1].cells[firstValCellIndex].style.background = gimTable.rows[2].cells[secondValCellIndex].style.background = "yellow";
+			}
+			/*else
+			{
+				gimTable.rows[1].cells[firstValCellIndex].style.background = gimTable.rows[2].cells[firstValCellIndex].style.background = "";
+			}*/
+		}
+	}
+}
+</script>
+
+</body>
+</html>

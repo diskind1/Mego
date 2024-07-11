@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>יצירת חשבון - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% extends "base.html" %}
+
+    {% block title %}יצירת חשבון{% endblock %}
+
+    {% block content %}
+    <header class="main-header">
+        <img src="{{ url_for('static', filename='images/LogoMegoLibrary.png') }}" alt="לוגו הספרייה" class="logo">
+        <h1>הספרייה הציבורית שלנו</h1>
+    </header>
+
+    <main>
+        <h2>יצירת חשבון</h2>
+        <form id="createAccountForm" method="POST" action="{{ url_for('create_account') }}">
+            <input type="text" id="username" name="username" placeholder="שם משתמש" required>
+            <input type="password" id="password" name="password" placeholder="סיסמה" required>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="אימות סיסמה" required>
+            <button type="submit">צור חשבון</button>
+        </form>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='create_account.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

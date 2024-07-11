@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חיפוש ספרים - ספרייה ציבורית</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        .menu-space {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {% extends "base.html" %}
+
+    {% block title %}חיפוש ספרים{% endblock %}
+
+    {% block content %}
+    <header class="main-header">
+        <img src="{{ url_for('static', filename='images/LogoMegoLibrary.png') }}" alt="לוגו הספרייה" class="logo">
+        <h1>הספרייה הציבורית שלנו</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('index') }}">דף הבית</a>
+        <a href="{{ url_for('borrow_book_page') }}">השאלת ספר</a>
+        <a href="{{ url_for('return_book_page') }}">החזרת ספר</a>
+    </nav>
+
+    <main>
+        <h2>חיפוש ספרים</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="חפש ספר...">
+            <select id="genreFilter">
+                <option value="">כל הז'אנרים</option>
+                <option value="מתח">מתח</option>
+                <option value="קומדיה">קומדיה</option>
+                <option value="רומן">רומן</option>
+                <option value="מדע בדיוני">מדע בדיוני</option>
+                <option value="היסטוריה">היסטוריה</option>
+                <option value="קודש">קודש</option>
+            </select>
+            <input type="text" id="skuInput" placeholder="חיפוש לפי מק''ט">
+            <button onclick="searchBySKU()">חפש לפי מק"ט</button>
+        </div>
+        <ul id="bookList"></ul>
+    </main>
+    {% endblock %}
+
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='search_books.js') }}"></script>
+    {% endblock %}
+</body>
+</html>

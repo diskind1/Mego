@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת ניהול ספרייה</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    
+
+    {% extends "base.html" %}
+
+    {% block title %}מערכת ניהול ספרייה{% endblock %}
+
+    {% block content %}
+    <h1>ברוכים הבאים למערכת ניהול הספרייה</h1>
+    <a href="{{ url_for('login') }}">התחברות</a>
+    <a href="{{ url_for('register') }}">הרשמה</a>
+    {% endblock %}
+
+</body>
+
+</html>
