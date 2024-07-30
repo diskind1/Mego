@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>משחק שחמט</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chess.css') }}">
+</head>
+<body>
+    <div id="game-container">
+        <div id="chessboard"></div>
+        <div id="game-info">
+            תור השחקן: <span id="current-player"></span>
+            <button id="undo-button">בטל מהלך אחרון</button>
+        </div>
+        <div id="captured-pieces">
+            <div>
+                כלים שנאכלו ללבן:
+                <div id="white-captured"></div>
+            </div>
+            <div>
+                כלים שנאכלו לשחור:
+                <div id="black-captured"></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='chess.js') }}"></script>
+</body>
+</html>
